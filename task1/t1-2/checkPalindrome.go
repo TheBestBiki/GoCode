@@ -1,5 +1,8 @@
 package main
 
+/**
+ * 校验是否是回文数
+ */
 func main() {
 	palindromeNum := 11211
 	isPalindrome := validatePalindrome(palindromeNum)
