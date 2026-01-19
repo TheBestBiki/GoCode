@@ -1,0 +1,23 @@
+git生成sshKey
+https://cloud.tencent.com/developer/article/1028073
+
+步骤2：
+添加 SSH 密钥到 GitHub
+复制公钥内容
+
+GitHub → Settings → SSH and GPG keys → New SSH key
+
+粘贴公钥，添加标题
+
+点击 "Add SSH key"
+
+步骤3：修改远程仓库 URL 为 SSH
+bash
+# 查看当前远程仓库
+git remote -v
+
+# 修改为 SSH URL
+git remote set-url origin git@github.com:TheBestBiki/GoCode.git
+
+# 测试连接
+ssh -T git@github.com
