@@ -7,7 +7,7 @@ import "fmt"
 然后在主函数中调用该函数并输出修改后的值。
 考察点 ：指针的使用、值传递与引用传递的区别。
 */
-func main() {
+func main2() {
 	num := 1
 	add(&num)
 	fmt.Println(num)
