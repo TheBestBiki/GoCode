@@ -59,6 +59,15 @@ func (s *SchedulerFactory) run2() {
 	wg.Add(len(s.task))
 	for index, task := range s.task {
 		go func(i int, t func()) {
+			// defer 用于延迟执行函数调用，被 defer 的语句会在包含它的函数返回之前执行。
+			/*
+				func example() {
+					fmt.Println("1. 开始执行")
+					defer fmt.Println("3. defer 语句")  // 最后执行
+					fmt.Println("2. 正常语句")
+					// 函数即将返回时执行 defer 语句
+				}
+			*/
 			defer wg.Done()
 			runTask(i, t)
 		}(index, task)

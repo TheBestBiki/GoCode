@@ -93,5 +93,11 @@ func main3() {
 	// 等待两个 goroutine 完成
 	<-done
 	<-done
+
+	//优雅一点的写法
+	// 等待所有 goroutine 完成
+	for i := 0; i < 2; i++ {
+		<-done
+	}
 	fmt.Println("所有任务完成")
 }
