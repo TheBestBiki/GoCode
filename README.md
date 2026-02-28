@@ -8,8 +8,9 @@ macOS: go 1.25.0
 *Aa 返回变量的值，一般来说，此时的Aa是指针地址  
 defer 用于延迟执行函数调用，被 defer 的语句会在包含它的函数返回之前执行。  
 
-### 常用函数  
-time.Now()   // 获取当前时间  
+### 常用函数
+startTime := time.Now() // 获取当前时间  
+executionTime := time.Since(startTime)  
 number2CountMap := make(map[int]int)  
 done := make(chan bool, 2) // 缓冲通道  
 
