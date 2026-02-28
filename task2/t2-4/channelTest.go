@@ -42,3 +42,40 @@ func main() {
 	wg.Wait()
 	fmt.Println("程序执行完毕")
 }
+
+/*
+最简单的适合需要通信的场景
+*/
+func main3() {
+	done := make(chan bool, 2)
+
+	go func() {
+		// 任务逻辑
+		done <- true // 发送完成信号
+	}()
+
+	<-done // 等待完成信号
+}
+
+/*
+使用信号量控制最大并发数
+*/
+func main4() {
+	semaphore := make(chan struct{}, 10) // 限制并发数
+
+	go func() {
+		semaphore <- struct{}{}        // 获取令牌
+		defer func() { <-semaphore }() // 释放令牌
+		// 执行任务
+	}()
+}
+
+/*
+数据安全共享
+*/
+func main5() {
+	var mu sync.Mutex // 互斥锁保护共享数据
+	mu.Lock()
+	// do something
+	mu.Unlock()
+}
